@@ -29,7 +29,6 @@ public class Excersizes {
         //ex5
         int[] isIncreaseDecreaseArr = {5, 1, 1, 2, 3, 2, 1, 0};
         System.out.println(IncreaseDecreaseArray(isIncreaseDecreaseArr));
-
         //ex6
         int countOccurrences = countOccurrences(arr2, 4);
         System.out.println(countOccurrences);
@@ -177,19 +176,21 @@ public class Excersizes {
     }
     //ex5 - O(n)
     public static boolean IncreaseDecreaseArray(int[] arr){
-        boolean hasIncrease = false;
-        boolean hasDecrease = false;
-        int maxNum = arr[0];
-        int maxIndex = 0;
+        // לפחות 3 איברים במערך כדי
+        // שיראו מספר מקסימלי עם עלייה לפני וירידה.
         if(arr.length<3){
             return false;
         }
+        int maxNum = arr[0];
+        int maxIndex = 0;
         for (int i = 0; i < arr.length; i++) {
             if(arr[i] > maxNum){
                 maxNum = arr[i];
                 maxIndex = i;
             }}
         if(maxIndex == 0 || maxIndex==arr.length-1){
+            // המספר המקסימלי לא יכול להיות ראשון או אחרון כי
+            // צריך שלפניו תיהיה עלייה ואחריו ירידה.
             return false;
         }
         for (int i = 0; i < maxIndex; i++) {
@@ -415,7 +416,7 @@ public class Excersizes {
             if(specialChars.indexOf(password.charAt(i))!= -1){
                 specialCharsCount++;
             }
-            if(specialCharsCount > 1){
+            if(specialCharsCount > 1){ // יעיל יותר במקום לחפש שהכמות שווה ל-1 אם מגיע למספר גדול מ-1 ישר מחזיר false
                 return false;
             }
 
@@ -440,6 +441,5 @@ public class Excersizes {
         }
         return false;
     }
-
 
 }
